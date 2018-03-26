@@ -1,10 +1,11 @@
+# Copyright : Morgan FEURTE and Jeffrey GONCALVES © 2018
+# main.py : Super chatbot with 3 modes
+
+import backchannels
+
 def analyseMessage(message):
 	print("Henlo, y did u say dis : " + message)
 	return "action"
-
-def backchannels():
-	print("Backchannels !")
-	return
 
 def psychiatrist():
 	print("Psychiatrist !")
@@ -39,7 +40,7 @@ if __name__=="__main__":
 		print("Mode : " + mode)
 
 		if(mode == '1'):
-			backchannels()
+			backchannels.execute()
 		elif(mode == '2'):
 			psychiatrist()
 		else:
