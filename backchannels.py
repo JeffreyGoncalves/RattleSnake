@@ -16,7 +16,7 @@ def execute():
 		else:
 			answer = compute_answer(last_backchannel)
 			last_backchannel = answer
-			utilities.print_message(answer)
+			utilities.print_message(answer, 1)
 	return
 
 
