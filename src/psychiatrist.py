@@ -102,9 +102,29 @@ def execute(mode):
 			utilities.print_message(answer,mode)
 	return
 
-def be_or_not_to_be():
+def reflect(input):
+	#spliting the input and beginning of the count of KW
+	tokens = input.lower().split()
+	keywords_occurence["family"] = 0
+	keywords_occurence["depression"] = 0
+	keywords_occurence["like"] = 0
+	keywords_occurence["dislike"] = 0
+	keywords_occurence["dream"] = 0
+	keywords_occurence["animal"] = 0
 
-    print("Take a sit and talk me about yourself")
+	for tkn in enumerate(tokens):
+		if(tkn in family_keywords):
+			keywords_occurence["family"] += 1
+		elif(tkn in depression_keywords):
+			keywords_occurence["depression"] += 1
+		elif(tkn in like_keywords):
+			keywords_occurence["like"] += 1
+		elif(tkn in dislike_keywords):
+			keywords_occurence["dislike"] += 1
+		elif(tkn in dream_keywords):
+			keywords_occurence["dream"] += 1
+		elif(tkn in animals_keywords):
+			keywords_occurence["animal"] += 1
 
 
 # check negation devant les mots et would devant like
