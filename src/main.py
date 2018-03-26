@@ -7,13 +7,11 @@ def analyseMessage(message):
 	print("Henlo, y did u say dis : " + message)
 	return "action"
 
-
 def psychiatrist():
 	print("Psychiatrist !")
 	return
 
-
-def mean_mode():
+def free_mode():
 	print("Free mode !")
 
 	while(1):
@@ -21,13 +19,12 @@ def mean_mode():
 		message = input("Talk 2 m e!\n")
 		
 		if(message == "exit"):
-			print("Glad to see you leave")
+			print("Goodby my fren")
 			break
 		else:
 			action = analyseMessage(message)
 			if (action == "TALK"):
 				print("I talked !")
-
 
 if __name__=="__main__":
 
