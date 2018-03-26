@@ -11,7 +11,7 @@ def execute():
 		message = input("YOU :  ")
 		
 		if(message == "exit"):
-			print("Goodby my fren")
+			print("Oh, I liked our conversation though")
 			break
 		else:
 			answer = compute_answer(last_backchannel)
