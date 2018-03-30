@@ -3,6 +3,7 @@
 
 import random
 import utilities
+import re
 
 family_keywords = ["family", "parent", "parents", "mom", "mother", "dad", "father",
                    "child", "children", "kid", "kids", "son", "daughter", "uncle",
@@ -35,7 +36,7 @@ answers_by_category = [
     ["family",
      ["Do you have issues with your family?",
       "It's important to be able to rely on your family!",
-      "Do you feel close to your {1}?",
+      "Do you feel close to your family?",
       "Would you like to have children?",
       "Do you often see your family?",
       "Your mother would be proud of you!"]],
@@ -45,7 +46,7 @@ answers_by_category = [
       "Suicide is never the solution!",
       "The first step to feeling good is to stop feeling bad.",
       "After the rain, comes the sun.",
-      "The world is cruel,it hurts me to see someone as amazing as you are in pain!",
+      "The world is cruel, it hurts me to see someone as amazing as you are in pain!",
       "The highway to happiness is steep but beautiful!"]],
 
     ["like",
@@ -59,7 +60,7 @@ answers_by_category = [
      ["Why do you hate this?",
       "What created your dislike for this matter?",
       "Hate is to the soul what a drill is to the wood.",
-      "\"Forgive your enemies\"-Lao Tseu(fake quote)"]],
+      "\"Forgive your enemies\" -Lao Tseu(fake quote)"]],
 
     ["dream",
      ["Do you dream often?",
@@ -76,7 +77,7 @@ answers_by_category = [
       "What comes to your mind when you say this?",
       "And what does that tell about you?",
       "Interesting.",
-      "Beep boop biiiiiiip!!!",
+      "Beep boop biiiiiiip !!!",
       "Why would you say that?",
       "Do you truly believe in what you just said?",
       "What do you think about the percentage of aluminium in watermelons?"]],
@@ -95,7 +96,9 @@ def execute():
 
     while(1):
         # Readinputfromuser
-        message = input("ＹＯＵ>>")
+        message = input("ＹＯＵ >>  ")
+        # message = re.sub('((?<![A-Z])[\.\?\!\:\,\;\"\(\)]+)', r" \1 ", message)
+
         answer, continue_answered_leave = check_politeness_formulas(message, last_answer)
         if(continue_answered_leave == 1):
             last_answer = answer
@@ -109,7 +112,6 @@ def execute():
 
 
 def count_word_occurences(input):
-    # splitingtheinputandbeginningofthecountofKW
     tokens = input.lower().split()
     keywords_occurence["family"] = 0
     keywords_occurence["depression"] = 0
@@ -170,36 +172,43 @@ def check_politeness_formulas(message, last_answer):
 
     introduction_formulas = ["hi", "hello", "good morning", "good afternoon"]
     thanking_formulas = ["thank you", "thanks", "thank you very much", "cheers"]
-    leaving_formulas = ["goodbye", "bye", "see you"]
+    leaving_formulas = ["goodbye", "bye", "see you", "see you.", "goodbye.", "goodbye!", "bye!"]
     holidays_formulas = ["happy new year", "merry christmas",
                      "happy halloween", "happy easter", "happy birthday"]
 
     message = message.lower()
-
+    answer = ""
     continue_answered_leave = 0
 
     if(message in introduction_formulas):
         answers = ["Hi!", "Hello to you.", "Great to see you:)",
                "Pleasure to meet you,I'm Dr.MoG-BOT!"]
+
         if(last_answer in answers):
             answers.remove(last_answer)
         answer = random.choice(answers)
         continue_answered_leave = 1
+
     elif(message in thanking_formulas):
         answers = ["You're welcome!", "My patients often say that.",
                "It's a pleasure to see you appreciate my hard work!"]
+
         if(last_answer in answers):
             answers.remove(last_answer)
         answer = random.choice(answers)
         continue_answered_leave = 1
+
     elif(message in leaving_formulas):
         answers = ["Goodbye!", "See you soon.", "Bye :)", "It's been nice analyzing you!"]
+
         if(last_answer in answers):
             answers.remove(last_answer)
         answer = random.choice(answers)
         continue_answered_leave = 2
+
     elif(message in holidays_formulas):
         answers = holidays_formulas
+
         if(last_answer in answers):
             answers.remove(last_answer)
         answer = random.choice(answers)
