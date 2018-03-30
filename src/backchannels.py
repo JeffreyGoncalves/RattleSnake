@@ -8,10 +8,10 @@ def execute():
 	last_backchannel = ""
 	while(1):
 		# Read input from user
-		message = input("YOU :  ")
+		message = input("ＹＯＵ >>  ")
 		
 		if(message == "exit"):
-			print("Oh, I liked our conversation though")
+			utilities.print_message("Oh, unexpected !", 1)
 			break
 		else:
 			answer = compute_answer(last_backchannel)
