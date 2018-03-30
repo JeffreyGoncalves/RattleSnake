@@ -11,7 +11,7 @@ def execute():
 		message = input("ＹＯＵ >>  ")
 		
 		if(message == "exit"):
-			utilities.print_message("Oh, unexpected !", 1)
+			utilities.print_message("Oh, unexpected!", 1)
 			break
 		else:
 			answer = compute_answer(last_backchannel)
@@ -21,16 +21,18 @@ def execute():
 
 
 def compute_answer(last_backchannel):
-	backchannels = ["Hmm ?", "I agree", "Oh ...", "Interesting !", "Tell me more about it"]
-	# TODO : Find more backchannels  ?
+	backchannels = ["Hmm?", "I agree", "Oh...", "Interesting!", "Tell me more about it"]
 
+	# Removing previously used backchannel from the list of possible answers
 	if(last_backchannel != ""):
 		backchannels.remove(last_backchannel)
 
+	# Returning a random answer from the list
 	return choose_random_backchannel(backchannels)
 
 
 def choose_random_backchannel(backchannels_list):
+	# Returns a random backchannel from the backchannels_list
 	list_length = len(backchannels_list)
 
 	position = random.randint(0, list_length - 1)
