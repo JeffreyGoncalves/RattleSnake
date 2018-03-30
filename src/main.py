@@ -2,6 +2,7 @@
 # main.py : Super chatbot with 3 modes
 
 import backchannels
+import psychiatrist as psy
 
 def analyseMessage(message):
 	print("Henlo, y did u say dis : " + message)
@@ -42,7 +43,7 @@ if __name__=="__main__":
 		if(mode == '1'):
 			backchannels.execute()
 		elif(mode == '2'):
-			psychiatrist()
+			psy.execute()
 		else:
 			free_mode()
 		

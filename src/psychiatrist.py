@@ -4,27 +4,30 @@
 import random
 import utilities
 
-family_keywords = ["family", "parent", "parents", "mom", "mother", "dad", "father", 
-					"child", "children", "kid", "kids", "son", "daughter", "uncle",
-					"aunt", "grandmother", "grandfather", "ancestor", "husband",
-					"wife"]
+family_keywords = ["family", "parent", "parents", "mom", "mother", "dad", "father",
+                   "child", "children", "kid", "kids", "son", "daughter", "uncle",
+                   "aunt", "grandmother", "grandfather", "ancestor", "husband",
+                   "wife"]
 
-depression_keywords = ["depression", "sad", "sick", "unhappy", "rejected", "miserable", 
-						"down", "awful", "wrecked", "depressed", "oppressed", "desperation",
-						"worries", "sadness", "sickness", "nervous", "suicide", "anxiety"]
+depression_keywords = ["depression", "sad", "sick", "unhappy", "rejected", "miserable",
+                       "down", "awful", "wrecked", "depressed", "oppressed", "desperation",
+                       "worries", "sadness", "sickness", "nervous", "suicide", "anxiety"]
 
-like_keywords = ["love", "like", "appreciate", "affection", "respect", "enjoy", "prefer", 
-					"adore", "admire"]
+like_keywords = ["love", "like", "appreciate", "affection", "respect", "enjoy", "prefer",
+                 "adore", "admire"]
 
 dislike_keywords = ["dislike", "hate", "resent", "detest"]
 
-dream_keywords = ["dream", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy", 
-					"oniric", "lucid", "woke"]
+dream_keywords = ["dream", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy",
+                  "oniric", "lucid", "woke"]
 
-animals_keywords = ["animal", "animals", "pet", "pets", "dog", "dogs", "cat", "cats", "doggo", 
-					"doge","alpaca", "albatros", "rat", "mouse", "feed", "elephant", "giraffe",
-					"hamster", "pig", "horse", "pony", "monkey", "cow", "duck", "deer",
-					"rabbit", "lion"]
+animals_keywords = ["animal", "animals", "pet", "pets", "dog", "dogs", "cat", "cats", "doggo",
+                    "doge", "alpaca", "albatros", "rat", "mouse", "feed", "elephant", "giraffe",
+                    "hamster", "pig", "horse", "pony", "monkey", "cow", "duck", "deer",
+                    "rabbit", "lion"]
+
+negation_keywords = ["not", "don't", "doesn't", "didn't", "isn't", "aren't", "wasn't", "weren't",
+                     "haven't", "hasn't", "hadn't", "won't", "wouldn't", "can't", "cannot", "shouldn't"]
 
 keywords_occurence = dict()
 
@@ -72,7 +75,7 @@ answers_by_category = [
       "I see.",
       "What comes to your mind when you say this?",
       "And what does that tell about you?",
-      "Interesting.", 
+      "Interesting.",
       "Beep boop biiiiiiip !!!",
       "Why would you say that?",
       "Do you truly believe in what you just said?",
@@ -86,45 +89,80 @@ answers_by_category = [
       "A cat picture a day keeps the doctor away."]]
 ]
 
+last_backchannel = ""
 
-def execute(mode):
-	last_backchannel = ""
-	while(1):
-		# Read input from user
-		message = input("YOU :  ")
-		
-		if(message == "exit"):
-			print("Have a nice day !")
-			break
-		else:
-			answer = be_or_not_to_be()
-			last_backchannel = answer
-			utilities.print_message(answer,mode)
-	return
+
+def execute():
+    
+    while(1):
+        # Read input from user
+        message = input("YOU :  ")
+
+        if(message == "exit"):
+            print("Have a nice day !")
+            break
+        else:
+            reflect(message)
+            answer = analyse()
+            last_backchannel = answer
+            utilities.print_message(answer, 2)
+    return
+
 
 def reflect(input):
-	#spliting the input and beginning of the count of KW
-	tokens = input.lower().split()
-	keywords_occurence["family"] = 0
-	keywords_occurence["depression"] = 0
-	keywords_occurence["like"] = 0
-	keywords_occurence["dislike"] = 0
-	keywords_occurence["dream"] = 0
-	keywords_occurence["animal"] = 0
+    # spliting the input and beginning of the count of KW
+    tokens = input.lower().split()
+    keywords_occurence["family"] = 0
+    keywords_occurence["depression"] = 0
+    keywords_occurence["like"] = 0
+    keywords_occurence["dislike"] = 0
+    keywords_occurence["dream"] = 0
+    keywords_occurence["animal"] = 0
 
-	for tkn in enumerate(tokens):
-		if(tkn in family_keywords):
-			keywords_occurence["family"] += 1
-		elif(tkn in depression_keywords):
-			keywords_occurence["depression"] += 1
-		elif(tkn in like_keywords):
-			keywords_occurence["like"] += 1
-		elif(tkn in dislike_keywords):
-			keywords_occurence["dislike"] += 1
-		elif(tkn in dream_keywords):
-			keywords_occurence["dream"] += 1
-		elif(tkn in animals_keywords):
-			keywords_occurence["animal"] += 1
+    for tkn in enumerate(tokens):
+        if(tkn in family_keywords):
+            keywords_occurence["family"] += 1
+        elif(tkn in depression_keywords):
+            keywords_occurence["depression"] += 1
+        elif(tkn in like_keywords):
+            keywords_occurence["like"] += 1
+        elif(tkn in dislike_keywords):
+            keywords_occurence["dislike"] += 1
+        elif(tkn in dream_keywords):
+            keywords_occurence["dream"] += 1
+        elif(tkn in animals_keywords):
+            keywords_occurence["animals"] += 1
+        elif (tkn in negation_keywords):
+            next(tokens, None)
+            continue
 
+    if(keywords_occurence["family"] == 0 and keywords_occurence["depression"] == 0 and keywords_occurence["like"] == 0 
+      and keywords_occurence["dislike"] == 0 and keywords_occurence["dream"] == 0 and keywords_occurence["animal"] == 0):
+        keywords_occurence["misunderstanding"] = 1
 
 # check negation devant les mots et would devant like
+
+def analyse():
+
+  subjects = ["family", "depression", "like", "dislike", "dream","misunderstanding","animals"]
+  max = 0
+  sub = ""
+  i = 0
+  for i in range(len(subjects)):
+    if(max < keywords_occurence[subjects[i]]):
+      max = keywords_occurence[subjects[i]]
+      sub = subjects[i]
+  toReturn = random.choice(answers_by_category[getIndice(sub)][1])
+  while(toReturn == last_backchannel):
+    toReturn = random.choice(answers_by_category[getIndice(sub)][1])
+  return toReturn
+
+def getIndice(sub):
+    default = 5
+    subjects = ["family", "depression", "like", "dislike", "dream","misunderstanding","animals"]
+    i=0
+    for i in range(len(subjects)-1):
+        if(subjects[i] == sub):
+            return i 
+    return default #should never happen
+
