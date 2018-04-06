@@ -1,5 +1,5 @@
 # Copyright : Morgan FEURTE and Jeffrey GONCALVES © 2018
-# psychiatrist.py : Eliza-like chatbot
+# psychiatrist.py : Second mode, Eliza-like chatbot
 
 import random
 import utilities
@@ -19,13 +19,13 @@ like_keywords = ["love", "like", "appreciate", "affection", "respect", "enjoy", 
 
 dislike_keywords = ["dislike", "hate", "resent", "detest"]
 
-dream_keywords = ["dream", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy",
+dream_keywords = ["dream", "dreams", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy",
                   "oniric", "lucid", "woke"]
 
 animals_keywords = ["animal", "animals", "pet", "pets", "dog", "dogs", "cat", "cats", "doggo",
                     "doge", "alpaca", "albatros", "rat", "mouse", "feed", "elephant", "giraffe",
                     "hamster", "pig", "horse", "pony", "monkey", "cow", "duck", "deer",
-                    "rabbit", "lion"]
+                    "rabbit", "lion", "bear"]
 
 negation_keywords = ["not", "don't", "doesn't", "didn't", "isn't", "aren't", "wasn't", "weren't",
                      "haven't", "hasn't", "hadn't", "won't", "wouldn't", "can't", "cannot", "shouldn't"]
@@ -95,23 +95,32 @@ def execute():
     last_answer = ""
 
     while(1):
-        # Readinputfromuser
+        # Read input from user
         message = input("ＹＯＵ >>  ")
-        # message = re.sub('((?<![A-Z])[\.\?\!\:\,\;\"\(\)]+)', r" \1 ", message)
+        # Separate commas, dots, parenthesis etc. from words with spaces
+        message = re.sub('((?<![A-Z])[\.\?\!\:\,\;\"\(\)]+)', r" \1 ", message)
 
+        # Check for politeness formulas
+        # if any are found continue_answered_leave will have value "answered" (1)
+        # if none are found, it will have value "continue" (0)
+        # if we find a formula indicating that the user wants to leave >> "leave" (2)
         answer, continue_answered_leave = check_politeness_formulas(message, last_answer)
         if(continue_answered_leave == 1):
             last_answer = answer
         if(continue_answered_leave == 0):
+        	# If no politeness formulas are found, we count the number of occurences of our
+        	# different subjects then compute an appropriate answer
             count_word_occurences(message)
             answer = compute_answer(last_answer)
             last_answer = answer
+        # Finally we print the answer and leave if we found any leaving intentions
         utilities.print_message(answer, 2)
         if(continue_answered_leave == 2):
             break
 
 
 def count_word_occurences(input):
+# Counting the number of occurences of each subjects and put them in the dictionnary "keywords_occurence"
     tokens = input.lower().split()
     keywords_occurence["family"] = 0
     keywords_occurence["depression"] = 0
@@ -136,28 +145,32 @@ def count_word_occurences(input):
             elif(tkn in animals_keywords):
                 keywords_occurence["animals"] += 1
 
+    # If no keywords are found, we select "misunderstanding" as subject             
     if(keywords_occurence["family"] == 0 and keywords_occurence["depression"] == 0 and keywords_occurence["like"] == 0
         and keywords_occurence["dislike"] == 0 and keywords_occurence["dream"] == 0 and keywords_occurence["animals"] == 0):
         keywords_occurence["misunderstanding"] = 1
 
 def compute_answer(last_answer):
-
+# Return an answer to the subject of the message
     subjects = ["family", "depression", "like",
             "dislike", "dream", "misunderstanding", "animals"]
     max = 0
     sub = ""
     i = 0
+    # Calculate which subject is the most represented
     for i in range(len(subjects)):
         if(max < keywords_occurence[subjects[i]]):
             max = keywords_occurence[subjects[i]]
             sub = subjects[i]
 
-    toReturn = random.choice(answers_by_category[getIndice(sub)][1])
+    # Choose a random answer different from the previous one in this subject
+    toReturn = random.choice(answers_by_category[getIndex(sub)][1])
     while(toReturn == last_answer):
-        toReturn = random.choice(answers_by_category[getIndice(sub)][1])
+        toReturn = random.choice(answers_by_category[getIndex(sub)][1])
     return toReturn
 
-def getIndice(sub):
+def getIndex(sub):
+# Gets the index of the subject given as parameter
     default = 5
     subjects = ["family", "depression", "like",
             "dislike", "dream", "misunderstanding", "animals"]
@@ -166,10 +179,11 @@ def getIndice(sub):
         if(subject == sub):
             return i
         i += 1
+
     return default  # should never happen
 
 def check_politeness_formulas(message, last_answer):
-
+# Return an answer to a politeness formula and whether or not it is useful to continue parsing
     introduction_formulas = ["hi", "hello", "good morning", "good afternoon"]
     thanking_formulas = ["thank you", "thanks", "thank you very much", "cheers"]
     leaving_formulas = ["goodbye", "bye", "see you", "see you.", "goodbye.", "goodbye!", "bye!"]
@@ -215,5 +229,3 @@ def check_politeness_formulas(message, last_answer):
         continue_answered_leave = 1
 
     return answer, continue_answered_leave
-
-# split . ! ? , :
