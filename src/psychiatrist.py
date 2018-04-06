@@ -7,8 +7,8 @@ import re
 
 family_keywords = ["family", "parent", "parents", "mom", "mother", "dad", "father",
                    "child", "children", "kid", "kids", "son", "daughter", "uncle",
-                                        "aunt", "grandmother", "grandfather", "ancestor", "husband",
-                                        "wife"]
+                    "aunt", "grandmother", "grandfather", "ancestor", "husband",
+                    "wife"]
 
 depression_keywords = ["depression", "sad", "sick", "unhappy", "rejected", "miserable",
                        "down", "awful", "wrecked", "depressed", "oppressed", "desperation",

@@ -1,15 +1,23 @@
 # Copyright : Morgan FEURTE and Jeffrey GONCALVES © 2018
 # utilities.py : Utility functions used in all files
 
-def print_message(answer, mode):
-
-	if(mode == 1):
-		print("Ｊ４Ｆ４Ｒ－Ｂ0Ｔ >> " + transform_to_vaporwave(answer))
-	elif(mode == 2):
-		print("Ｄｒ．ＭｏＧ~Ｂ0Ｔ >> " + transform_to_vaporwave(answer))
+def print_message(answer, mode, vaporwave, mood = ""):
+	if(vaporwave == "1"):
+		if(mode == 1):
+			print("Ｊ４Ｆ４Ｒ－Ｂ0Ｔ >> " + transform_to_vaporwave(answer))
+		elif(mode == 2):
+			print("Ｄｒ．ＭｏＧ~Ｂ0Ｔ >> " + transform_to_vaporwave(answer))
+		else:
+			print("Ｍｅ４ｎ_Ｂ0Ｔ " + mood + " >> " + transform_to_vaporwave(answer))
+		print("")
 	else:
-		print("Ｍｅ４ｎ_Ｂ0Ｔ >> " + transform_to_vaporwave(answer))
-	print("")
+		if(mode == 1):
+			print("Ｊ４Ｆ４Ｒ－Ｂ0Ｔ >> " + answer)
+		elif(mode == 2):
+			print("Ｄｒ．ＭｏＧ~Ｂ0Ｔ >> " + answer)
+		else:
+			print("Ｍｅ４ｎ_Ｂ0Ｔ " + mood + " >> " + answer)
+		print("")
 
 def transform_to_vaporwave(message):
 	vaporwave_lowercase_letters = ['ａ', 'ｂ', 'ｃ', 'ｄ', 'ｅ', 'ｆ', 'ｇ', 'ｈ', 'ｉ', 'ｊ', 'ｋ', 
@@ -20,7 +28,8 @@ def transform_to_vaporwave(message):
 									'Ｌ', 'Ｍ', 'Ｎ', 'Ｏ', 'Ｐ', 'Ｑ', 'Ｒ', 'Ｓ', 'Ｔ', 'Ｕ', 'Ｖ', 
 									'Ｗ', 'Ｘ', 'Ｙ', 'Ｚ']
 
-	vaporwave_punctuation = ['．', '！', '？', '，', '　','"','（', '）', '－', "'", '：']
+	vaporwave_punctuation = ['．', '！', '？', '，', '　','"','（', '）', '－',
+								"'", '：', '[', ']']
 
 	new_message = ""
 	for letter in message:
@@ -48,6 +57,10 @@ def transform_to_vaporwave(message):
 			new_message += vaporwave_punctuation[10]
 		elif (ascii_code == 63):
 			new_message += vaporwave_punctuation[2]
+		elif (ascii_code == 91):
+			new_message += vaporwave_punctuation[11]
+		elif (ascii_code == 93):
+			new_message += vaporwave_punctuation[12]
 		else:
 			if(ascii_code >= 97):
 				new_message += vaporwave_lowercase_letters[ascii_code - 97]

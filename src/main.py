@@ -3,6 +3,7 @@
 
 import backchannels
 import psychiatrist as psy
+import mean_bot
 
 def analyseMessage(message):
 	print("Henlo, y did u say dis : " + message)
@@ -32,6 +33,7 @@ if __name__=="__main__":
 	import argparse
 	parser = argparse.ArgumentParser()
 	parser.add_argument('chatbot_mode')
+	parser.add_argument('vaporwave_or_not')
 	args = parser.parse_args()
 
 	mode = args.chatbot_mode
@@ -45,5 +47,5 @@ if __name__=="__main__":
 		elif(mode == '2'):
 			psy.execute()
 		else:
-			free_mode()
+			mean_bot.execute(args.vaporwave_or_not)
 		
