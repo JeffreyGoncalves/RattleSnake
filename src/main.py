@@ -43,9 +43,9 @@ if __name__=="__main__":
 		print("Mode : " + mode)
 
 		if(mode == '1'):
-			backchannels.execute()
+			backchannels.execute(args.vaporwave_or_not)
 		elif(mode == '2'):
-			psy.execute()
+			psy.execute(args.vaporwave_or_not)
 		else:
 			mean_bot.execute(args.vaporwave_or_not)
 		

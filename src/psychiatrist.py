@@ -91,7 +91,7 @@ answers_by_category = [
 ]
 
 
-def execute():
+def execute(vaporwave):
     last_answer = ""
 
     while(1):
@@ -114,7 +114,7 @@ def execute():
             answer = compute_answer(last_answer)
             last_answer = answer
         # Finally we print the answer and leave if we found any leaving intentions
-        utilities.print_message(answer, 2)
+        utilities.print_message(answer, 2, vaporwave)
         if(continue_answered_leave == 2):
             break
 
@@ -164,23 +164,10 @@ def compute_answer(last_answer):
             sub = subjects[i]
 
     # Choose a random answer different from the previous one in this subject
-    toReturn = random.choice(answers_by_category[getIndex(sub)][1])
+    toReturn = random.choice(answers_by_category[utilities.getIndex(sub, "psychiatrist")][1])
     while(toReturn == last_answer):
-        toReturn = random.choice(answers_by_category[getIndex(sub)][1])
+        toReturn = random.choice(answers_by_category[utilities.getIndex(sub, "psychiatrist")][1])
     return toReturn
-
-def getIndex(sub):
-# Gets the index of the subject given as parameter
-    default = 5
-    subjects = ["family", "depression", "like",
-            "dislike", "dream", "misunderstanding", "animals"]
-    i = 0
-    for subject in subjects:
-        if(subject == sub):
-            return i
-        i += 1
-
-    return default  # should never happen
 
 def check_politeness_formulas(message, last_answer):
 # Return an answer to a politeness formula and whether or not it is useful to continue parsing
@@ -196,7 +183,7 @@ def check_politeness_formulas(message, last_answer):
 
     if(message in introduction_formulas):
         answers = ["Hi!", "Hello to you.", "Great to see you:)",
-               "Pleasure to meet you,I'm Dr.MoG-BOT!"]
+               "Pleasure to meet you, I'm Dr.MoG-BOT!"]
 
         if(last_answer in answers):
             answers.remove(last_answer)

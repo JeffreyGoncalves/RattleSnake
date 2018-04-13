@@ -4,24 +4,24 @@
 import random
 import utilities
 
-def execute():
+def execute(vaporwave):
 	last_backchannel = ""
 	while(1):
 		# Read input from user
 		message = input("ＹＯＵ >>  ")
 		
 		if(message == "exit"):
-			utilities.print_message("Oh, unexpected!", 1)
+			utilities.print_message("Oh, unexpected!", 1, vaporwave)
 			break
 		else:
 			answer = compute_answer(last_backchannel)
 			last_backchannel = answer
-			utilities.print_message(answer, 1)
+			utilities.print_message(answer, 1, vaporwave)
 	return
 
 
 def compute_answer(last_backchannel):
-	backchannels = ["Hmm?", "I agree", "Oh...", "Interesting!", "Tell me more about it"]
+	backchannels = ["Hmm?", "I agree", "Oh...", "Interestin1234567890g!", "Tell me more about it"]
 
 	# Removing previously used backchannel from the list of possible answers
 	if(last_backchannel != ""):

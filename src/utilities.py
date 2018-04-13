@@ -28,6 +28,8 @@ def transform_to_vaporwave(message):
 									'Ｌ', 'Ｍ', 'Ｎ', 'Ｏ', 'Ｐ', 'Ｑ', 'Ｒ', 'Ｓ', 'Ｔ', 'Ｕ', 'Ｖ', 
 									'Ｗ', 'Ｘ', 'Ｙ', 'Ｚ']
 
+	vaporwave_figures = ['０', '１', '２', '３', '４', '５', '６', '７', '８', '９']
+
 	vaporwave_punctuation = ['．', '！', '？', '，', '　','"','（', '）', '－',
 								"'", '：', '[', ']']
 
@@ -64,7 +66,27 @@ def transform_to_vaporwave(message):
 		else:
 			if(ascii_code >= 97):
 				new_message += vaporwave_lowercase_letters[ascii_code - 97]
-			else:
+			elif(ascii_code >= 65):
 				new_message += vaporwave_upercase_letters[ascii_code - 65]
+			elif(ascii_code <= 57 and ascii_code >= 48):
+				new_message += vaporwave_figures[ascii_code - 58]
 
 	return new_message
+
+
+def getIndex(sub, psyOrMean):
+# Gets the index of the subject given as parameter
+    default = 5
+    if(psyOrMean == "psychiatrist"):
+    	subjects = ["family", "depression", "like", "dislike", "dream", "misunderstanding", 
+    				"animals"]
+    elif(psyOrMean == "mean"):
+    	subjects = ["family", "depression", "animals", "dream",  "misunderstanding", 
+    	  			"weather", "pain", "fruit", "vegetable", "bot"]
+    i = 0
+    for subject in subjects:
+        if(subject == sub):
+            return i
+        i += 1
+
+    return default  # should never happen

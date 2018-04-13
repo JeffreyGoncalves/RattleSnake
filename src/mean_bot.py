@@ -9,14 +9,19 @@
 import random
 import re
 import utilities
+import lexical_stuff as ls
 
 moods = ["[Slightly annoyed]", "[Pissed off]", "[Angry]", 
 			"[Does not respond]", "[Quits]"]
 
+# Ceiling of each mood
 annoyed_ceiling = 10
 pissedoff_ceiling = 20
 angry_ceiling = 30
 noresponse_ceiling = 50
+
+# Creating the dictionnary for keywords occurences
+keywords_occurence = dict()
 
 def execute(vaporwave):
 	last_answer = ""
@@ -58,13 +63,14 @@ def execute(vaporwave):
 						answer = exit_answer
 					else :
 						# If we are not yet in the "Does not respond mode"
-						if (determine_mood(mood_score) != 3):
-							# subject = determine_conversation_subject(message)
-							# count_word_occurences(message)
-							# answer = compute_answer(last_answer)
-							# last_answer = answer
-							# utilities.print_message(answer, 3)
-							answer = "aba aba"
+						current_mood = determine_mood(mood_score)
+						if (current_mood != 3):
+							count_subjects_occurences(message)
+							subject = compute_subject()
+							action = compute_action_verb(message)
+							print("Action : " + action)
+							answer = compute_answer(last_answer, current_mood, subject)
+							last_answer = answer
 						else:
 							answer = "..."
 
@@ -72,7 +78,7 @@ def execute(vaporwave):
 				switched = 1
 		
 		if(determine_mood(mood_score) == 4):
-			answer = "Your journey ends here!"
+			answer = "Come back when you are a nicer human being!"
 			utilities.print_message(answer, 3, vaporwave, moods[4])
 			break
 
@@ -114,8 +120,8 @@ def identic_message(previous_message):
 	return random.choice(possible_answers)
 
 def check_for_nice_words(message, mood_score):
-	nice_keywords = [("i love you", 5), ("you are the best", 10), 
-					("you're the best", 10), ("well coded", 10)]
+	nice_keywords = [("i love you", 5), ("you are the best", 10), ("i am sorry", 10),
+					("you're the best", 10), ("well coded", 10), ("i'm sorry", 10)]
 
 	found = 0
 	answer = ""
@@ -185,5 +191,120 @@ def determine_conversation_subject(message):
 	return 0
 
 
-# Why -> Because : engueuler
-# Trouver des réponses troll dès qu'on voit Why .*
+def count_subjects_occurences(input):
+# Counting the number of occurences of each subjects and put them in the dictionnary "keywords_occurence"
+	tokens = input.lower().split()
+	keywords_occurence["family"] = 0
+	keywords_occurence["depression"] = 0
+	keywords_occurence["animals"] = 0
+	keywords_occurence["dream"] = 0
+	keywords_occurence["misunderstanding"] = 0
+	keywords_occurence["weather"] = 0
+	keywords_occurence["pain"] = 0
+	keywords_occurence["fruit"] = 0
+	keywords_occurence["vegetable"] = 0
+	keywords_occurence["bot"] = 0
+
+	for index, tkn in enumerate(tokens):
+		if(tkn in ls.subjects[0][1]):
+			keywords_occurence["family"] += 1
+		elif(tkn in ls.subjects[1][1]):
+			keywords_occurence["depression"] += 1
+		elif(tkn in ls.subjects[2][1]):
+			keywords_occurence["animals"] += 1
+		elif(tkn in ls.subjects[3][1]):
+			keywords_occurence["dream"] += 1
+		elif(tkn in ls.subjects[4][1]):
+			keywords_occurence["weather"] += 1
+		elif(tkn in ls.subjects[5][1]):
+			keywords_occurence["pain"] += 1
+		elif(tkn in ls.subjects[6][1]):
+			keywords_occurence["fruit"] += 1
+		elif(tkn in ls.subjects[7][1]):
+			keywords_occurence["vegetable"] += 1
+		elif(tkn in ls.subjects[8][1]):
+			keywords_occurence["bot"] += 1
+
+	# If no keywords are found, we select "misunderstanding" as subject			 
+	if(keywords_occurence["family"] == 0 and keywords_occurence["depression"] == 0 and keywords_occurence["animals"] == 0
+		and keywords_occurence["dream"] == 0 and keywords_occurence["weather"] == 0 and keywords_occurence["pain"] == 0
+		and keywords_occurence["fruit"] == 0 and keywords_occurence["vegetable"] == 0 and keywords_occurence["bot"] == 0 ):
+		keywords_occurence["misunderstanding"] = 1
+
+def compute_answer(last_answer, current_mood, sub):
+# Return an answer to the subject of the message
+
+	# Determining which answer pool to choose from based on the current mood
+	answer_pool = [] 
+	if (current_mood == 0):
+		answer_pool = ls.basicAnswers
+	elif (current_mood == 1):
+		answer_pool = ls.POAnswers
+	elif (current_mood == 2):
+		answer_pool = ls.angryAnswers
+
+	# Choose a random answer different from the previous one in this subject
+	toReturn = random.choice(answer_pool[utilities.getIndex(sub, "mean")][1])
+	while (toReturn == last_answer):
+		toReturn = random.choice(answer_pool[utilities.getIndex(sub, "mean")][1])
+	return toReturn
+
+def compute_subject():
+	subjects = ["family", "depression", "animals", "dream",  "misunderstanding", "weather", "pain", 
+				"fruit", "vegetable", "bot"]
+	max = 0
+	sub = ""
+
+	# Calculate which subject is the most represented
+	for i in range(len(subjects)):
+		if(max < keywords_occurence[subjects[i]]):
+			max = keywords_occurence[subjects[i]]
+			sub = subjects[i]
+
+	print(keywords_occurence) #TODO : remove
+
+	return sub
+
+def compute_action_verb(message):
+	found = ""
+	action = ""
+	for action_tuple in actions:
+		if(found == ""):
+			if(action_tuple[0] != "question"):
+				for regex in action_tuple[1]:
+					if(re.match(regex, message.lower()) != None):
+						found = regex
+						action = action_tuple[0]
+						break
+			else:
+				for keyword in action_tuple[1]:
+					if (keyword in message):
+						found = keyword
+						action = action_tuple[0]
+						break
+
+	return found
+
+
+actions = 	[
+				("like", [r"i like .*", r"i love .*", r"i appreciate .*", 
+							r"i am interested in .*"]),
+				("dislike", [r"i don't like .*", r"i hate .*", r"i do not like .*", 
+							r"i despise .*"]),
+				("do", [r"i made .*"]),
+				("be", [r"you are .*", r"i am .*", r"he is .*", r"we are .*" ]),
+				("have", [r"i have .*", r"i got .*"]),
+				("question", ["Are you", "Would you", "Will you", "Do you", "Why", 
+							"Where", "What", "When", "?"])
+			]
+
+# Scenarios :
+#		- action found, subject found:
+#			semi-reflection + phrase de base
+#		- action found, subject not found:
+#			reflection dans ta face
+#			si question : s'énerver car on comprend pas le sujet
+#		- action not found, subject found:
+#			phrase de base
+#		- action not found, subject not found:
+#			misunderstanding
