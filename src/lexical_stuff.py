@@ -9,7 +9,7 @@ import utilities
 #####################################
 #                                   #
 #      WHAT ARE YOU DOING HERE?     #
-#   MY BRAIN  ON MY OWN PROPERTY!!  #
+#   MY BRAIN IS MY OWN PROPERTY!!   #
 #                                   #
 #####################################
 
@@ -68,6 +68,13 @@ basicAnswers = [
       "The world is cruel, it hurts me to see someone as amazing as you are in pain!",
       "The highway to happiness is steep but beautiful!"]],
     
+    ["animals",
+     ["You know, your love for animals make you a great person!",
+      "Who does not like pets?",
+      "Do you like animals?",
+      "\"Woof woof\", the dog said, while his master was opening the door.",
+      "A cat picture a day keeps the doctor away."]],
+    
     ["dream",
      ["Do you dream often?",
       "What was your last dream about?",
@@ -87,13 +94,6 @@ basicAnswers = [
       "Why would you say that?",
       "Do you truly believe in what you just said?",
       "What do you think about the percentage of aluminium in watermelons?"]],
-
-    ["animals",
-     ["You know, your love for animals make you a great person!",
-      "Who does not like pets?",
-      "Do you like animals?",
-      "\"Woof woof\", the dog said, while his master was opening the door.",
-      "A cat picture a day keeps the doctor away."]],
 
     ["pain",
      ["On a scale from 1 to 10, how is your pain?",
@@ -126,4 +126,28 @@ basicAnswers = [
      ]]
 ]
 
-usrMoods = []
+angryAnswers = [
+
+    ["family",
+     ["OK.",
+      "So, how is your mother ?",
+      "You are as interesting as a sand grain in a desert.",
+      ]]
+
+    ["depression",[]]
+
+    ["dream",[]]
+
+    ["misunderstanding",[]]
+
+    ["animals",[]]
+
+    ["pain",[]]
+
+    ["fruit",[]]
+
+    ["vegetable",[]]
+
+    ["bot",[]]
+
+]
