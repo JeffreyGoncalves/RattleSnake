@@ -33,7 +33,7 @@ subjects = [
                   "oniric", "lucid", "woke"]],
 
     ["weather",["sun","sunny","rain","rainy","cloud","cloudy","rainbow","hot","cold","air","atmosphere",
-                "raining","climate","cyclone"]],
+                "raining","climate","cyclone","meteo"]],
     
     ["pain",[r"[a-zA-Z]*ache","agony","fever",r"ill[a-z]*","injury",r"wound[a-z]*"]],
 
@@ -96,7 +96,10 @@ basicAnswers = [
       "What do you think about the percentage of aluminium in watermelons?"]],
     
     ["weather", 
-     ["TODO"]],
+     ["IT'S RAINING MEN!! HALLELUJAH!!! IT'S RAINING MEN!! AMEN!!!",
+      "IT'S A BEAUTIFUL DAY!! SKY FALLS, YOU FEEL LIKE!! IT'S A BEAUTIFUL DAY!! DON'T LET IT GO AWAY!! ",
+      "The Beatles used to sing \"GOOD DAY SUNSHINE!!!\"",
+      ]],
 
     ["pain",
      ["On a scale from 1 to 10, how is your pain?",
