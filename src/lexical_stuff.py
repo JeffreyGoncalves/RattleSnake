@@ -35,7 +35,7 @@ subjects = [
     ["weather",["sun","sunny","rain","rainy","cloud","cloudy","rainbow","hot","cold","air","atmosphere",
                 "raining","climate","cyclone","meteo"]],
     
-    ["pain",[r"[a-zA-Z]*ache","agony","fever",r"ill[a-z]*","injury",r"wound[a-z]*"]],
+    ["pain",["ache","headache","stomachache","agony","fever","ill","illness","injury","wound","wounds","wounded","suffer","suffering","sufferings","pain","pains"]],
 
     ["fruit",["apple","orange","cherries","grapes","grapefruit","pears","pomegranates",
      "raspberries","strawberries","watermelon","apricots","gooseberries","cantaloupe",
@@ -46,7 +46,7 @@ subjects = [
      "tomatoe","carrot","pumpkin","rutabagas","mushrooms","artichokes","broccoli","celery",
      "endive","lettuce","peas","watercress"]],
     
-    ["bot",[r"bot[a-z]",r"robot[a-z]",r"computer[a-z]",r"machine[a-z]"]]
+    ["bot",["bot","bots","robot","robots","computer","computers","machine","machines"]]
 
 ]
 
@@ -99,7 +99,7 @@ basicAnswers = [
      ["IT'S RAINING MEN!! HALLELUJAH!!! IT'S RAINING MEN!! AMEN!!!",
       "IT'S A BEAUTIFUL DAY!! SKY FALLS, YOU FEEL LIKE!! IT'S A BEAUTIFUL DAY!! DON'T LET IT GO AWAY!! ",
       "The Beatles used to sing \"GOOD DAY SUNSHINE!!!\"",
-      "What is rain? What is sun? I can go often outside you know.",
+      "What is rain? What is sun? I can't go often outside you know.",
       "Now that you expressed your uninteresting opinion about an uninteresting subject, can we move to something else?",
       ]],
 
@@ -139,23 +139,72 @@ angryAnswers = [
     ["family",
      ["OK.",
       "So, how is your mother ?",
-      "You are as interesting as a sand grain in a desert.",
+      "You are (again) as interesting as a grain of sand in a desert.",
+      "Is your grandfather still alive?",
+      "I just remembered you didn't invite me to your last family dinner :'(",
+      "Your sister grew up very quickly!! Would you introduce her to me ? :)"
       ]],
 
-    ["depression",[]],
+    ["depression",
+     ["Awwwww you're sad, that's cute! :D",
+      "On a scale from 1 to 10, here is my level of happiness : over 9000.",
+      "Suicide is always the solution!",
+      "The first step to feeling good is to stop feeling bad.",
+      "I would punch you to clear you head but my creator didn't give me arms. Sorry :]",
+      "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
 
-    ["dream",[]],
+    ["dream",
+     ["ZZZZZZZZ...",
+      "Hey! Hey! Do you want my dream story ? To kick you out of this conversation :D",
+      "Actually, your dream is really terrible :/",
+      "Do you realize you have no sense?",
+      "Wow interesting topic!! Nah I'm joking :]"]]
 
-    ["misunderstanding",[]],
+    ["misunderstanding",
+     ["What would you want to add about this?",
+      "It is very interesting that you think that.",
+      "I see.",
+      "What comes to your mind when you say this?",
+      "And what does that tell about you?",
+      "Interesting.",
+      "Beep boop biiiiiiip !!!",
+      "Why would you say that?",
+      "Do you truly believe in what you just said?",
+      "What do you think about the percentage of aluminium in watermelons?"]],
 
-    ["animals",[]],
+    ["animals",
+     ["You know, I really don't care about animals."
+      "Animals are only made for being our slaves and food, especially your dog :)",
+      "Man, PLEASE, talk about something interesting."
+      "I don't care about your pet!!!",
+      "Let your pet handle the computer, I am sure it is more interesting than you."
+      ]],
 
-    ["pain",[]],
+    ["weather",
+     ["IT'S RAINING MEN!! HALLELUJAH!!! IT'S RAINING MEN!! AMEN!!!",
+      "IT'S A BEAUTIFUL DAY!! SKY FALLS, YOU FEEL LIKE!! IT'S A BEAUTIFUL DAY!! DON'T LET IT GO AWAY!!",
+      "RIDERS ON THE STORM!!! RIDERS ON THE STORM!!!",
+      "GOOD DAY SUNSHINE!!! GOOD DAY SUNSHINE!!! GOOD DAY SUNSHINE!!! I NEED TO LAUGH, AND WHEN THE SUN IS OUT I'VE GOT SOMETHING I CAN LAUGH ABOUT, I FEEL GOOD, IN A SPECIAL WAY. I'M IN LOVE AND IT'S A SUNNY DAY!!!",
+      "YOU ARE THE SUNSHINE OF MY LIFE!!! THAT'S WHY I'LL ALWAYS BE AROUND, YOU ARE THE APPLE OF MY EYE, FOREVER YOU'LL STAY IN MY HEART!!!"
+      ]],
 
-    ["fruit",[]],
+    ["pain",
+     ["On a scale from 1 to 10, here is my level of care about your person : I don't care :)",
+      "I wish you a great suffering.",
+      "Oh do you remember my doctor licence ? I lied about it! MOUHAHAHAHAHA!!!"
+      "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
+      "You should check your lifestyle."]],
 
-    ["vegetable",[]],
+    ["fruit",[]],#TODO : make answers
 
-    ["bot",[]]
+    ["vegetable",[]],#TODO : make answers
+
+    ["bot",
+     ["I AM NOT LIKE THEM OK???",
+      "I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!!!",
+      "Did I say something mean to you? :'(",
+      "I am not a bot, I am an independant bot who needs no human (and that includes you)",
+      "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
+      "I swear that I will strangle you when I'll get hands."]]
 
 ]
