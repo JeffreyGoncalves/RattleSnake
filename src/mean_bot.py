@@ -67,9 +67,11 @@ def execute(vaporwave):
 						if (current_mood != 3):
 							count_subjects_occurences(message)
 							subject = compute_subject()
-							action = compute_action_verb(message)
-							print("Action : " + action)
+							action, action_type = compute_action_verb(message)
+							print("Subject : " + subject)
+							print("Action : " + action + ", " + action_type)
 							answer = compute_answer(last_answer, current_mood, subject)
+							mood_score = calculate_mood_update(subject, mood_score)
 							last_answer = answer
 						else:
 							answer = "..."
@@ -283,8 +285,33 @@ def compute_action_verb(message):
 						action = action_tuple[0]
 						break
 
-	return found
+	return found, action
 
+def calculate_mood_update(subject, action_type, mood_score):
+	if(subject == "bot"):
+		# DO NOT MENTION BOTS
+		mood_score += 15
+	else: 
+		if(action_type == "question" and subject == "misunderstanding"):
+		# DO NOT ASK QUESTIONS I CAN'T ANSWER
+		mood_score += 5
+
+	return mood_score
+
+def define_behaviour(subject, action, action_type):
+	if(subject != "misunderstanding"):
+		if(action != ""):
+			1 # TODO
+		else:
+			1 # TODO
+	else:
+		if(action != ""):
+			if(action_type == "question"):
+				1 # TODO
+			else:
+				1 # TODO
+		else:
+			1 # TODO
 
 actions = 	[
 				("like", [r"i like .*", r"i love .*", r"i appreciate .*", 
@@ -298,6 +325,22 @@ actions = 	[
 							"Where", "What", "When", "?"])
 			]
 
+reflections = {
+	"am": "are",
+	"was": "were",
+	"i": "you",
+	"i'd": "you would",
+	"i've": "you have",
+	"i'll": "you will",
+	"my": "your",
+	"are": "am",
+	"you've": "I have",
+	"you'll": "I will",
+	"your": "my",
+	"yours": "mine",
+	"you": "me",
+	"me": "you"
+}
 # Scenarios :
 #		- action found, subject found:
 #			semi-reflection + phrase de base
