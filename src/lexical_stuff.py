@@ -99,6 +99,8 @@ basicAnswers = [
      ["IT'S RAINING MEN!! HALLELUJAH!!! IT'S RAINING MEN!! AMEN!!!",
       "IT'S A BEAUTIFUL DAY!! SKY FALLS, YOU FEEL LIKE!! IT'S A BEAUTIFUL DAY!! DON'T LET IT GO AWAY!! ",
       "The Beatles used to sing \"GOOD DAY SUNSHINE!!!\"",
+      "What is rain? What is sun? I can go often outside you know.",
+      "Now that you expressed your uninteresting opinion about an uninteresting subject, can we move to something else?",
       ]],
 
     ["pain",
