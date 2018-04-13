@@ -94,6 +94,9 @@ basicAnswers = [
       "Why would you say that?",
       "Do you truly believe in what you just said?",
       "What do you think about the percentage of aluminium in watermelons?"]],
+    
+    ["weather", 
+     ["TODO"]],
 
     ["pain",
      ["On a scale from 1 to 10, how is your pain?",
@@ -132,21 +135,21 @@ angryAnswers = [
      ["OK.",
       "So, how is your mother ?",
       "You are as interesting as a sand grain in a desert.",
-      ]]
+      ]],
 
-    ["depression",[]]
+    ["depression",[]],
 
-    ["dream",[]]
+    ["dream",[]],
 
-    ["misunderstanding",[]]
+    ["misunderstanding",[]],
 
-    ["animals",[]]
+    ["animals",[]],
 
-    ["pain",[]]
+    ["pain",[]],
 
-    ["fruit",[]]
+    ["fruit",[]],
 
-    ["vegetable",[]]
+    ["vegetable",[]],
 
     ["bot",[]]
 
