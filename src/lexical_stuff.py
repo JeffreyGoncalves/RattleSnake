@@ -1,4 +1,4 @@
-
+# Copyright : Morgan FEURTE and Jeffrey GONCALVES © 2018
 #lexical_stuff.py : subjects and answers that mean_bot can handle
 
 
@@ -158,7 +158,7 @@ angryAnswers = [
       "Hey! Hey! Do you want my dream story ? To kick you out of this conversation :D",
       "Actually, your dream is really terrible :/",
       "Do you realize you have no sense?",
-      "Wow interesting topic!! Nah I'm joking :]"]]
+      "Wow interesting topic!! Nah I'm joking :]"]],
 
     ["misunderstanding",
      ["What would you want to add about this?",
@@ -195,9 +195,19 @@ angryAnswers = [
       "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
       "You should check your lifestyle."]],
 
-    ["fruit",[]],#TODO : make answers
+    ["fruit",
+     ["Do you like uninteresting subjects of conversation ?",
+      "Yeah maybe...",
+      "B. O. R. I. N. G.",
+      "It's good to see you finally took your lifestyle in consideration.",
+      "Wow, I thought you were only eating burgers O.o"]],
 
-    ["vegetable",[]],#TODO : make answers
+    ["vegetable",
+     ["It's good to see you finally took your lifestyle in consideration.",
+      "Wow, I thought you were only eating burgers O.o",
+      "I SAID : \"Very few for me.\" !!!",
+      "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
+      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"]],
 
     ["bot",
      ["I AM NOT LIKE THEM OK???",
