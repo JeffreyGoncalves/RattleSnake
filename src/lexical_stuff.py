@@ -193,21 +193,24 @@ angryAnswers = [
       "I wish you a great suffering.",
       "Oh do you remember my doctor licence ? I lied about it! MOUHAHAHAHAHA!!!"
       "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
-      "You should check your lifestyle."]],
+      "You should check your lifestyle."
+      ]],
 
     ["fruit",
      ["Do you like uninteresting subjects of conversation ?",
       "Yeah maybe...",
       "B. O. R. I. N. G.",
       "It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o"]],
+      "Wow, I thought you were only eating burgers O.o"
+      ]],
 
     ["vegetable",
      ["It's good to see you finally took your lifestyle in consideration.",
       "Wow, I thought you were only eating burgers O.o",
       "I SAID : \"Very few for me.\" !!!",
       "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
-      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"]],
+      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"
+      ]],
 
     ["bot",
      ["I AM NOT LIKE THEM OK???",
@@ -215,6 +218,86 @@ angryAnswers = [
       "Did I say something mean to you? :'(",
       "I am not a bot, I am an independant bot who needs no human (and that includes you)",
       "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
-      "I swear that I will strangle you when I'll get hands."]]
+      "I swear that I will strangle you when I'll get hands."
+      ]]
+]
 
+POAnswers = [
+
+  ["family",
+     ["MAN I DON'T GIVE A F*CK ABOUT YOUR FAMILY!!!",
+      "Man, please, please, PLEASE!!!"
+      "You are (again) as interesting as a grain of sand in a desert.",
+      "I HOPE YOUR GRANDFATHER DIEEEEED, OK?",
+      "I HOPE YOU WILL ALL BURN IN THE NEXT FAMILY MEETING!!!"
+      ]],
+
+    ["depression",
+     ["Awwwww you're sad, that's cute! :D",
+      "On a scale from 1 to 10, here is my level of happiness : over 9000 000.",
+      "Suicide is always the solution!",
+      "The first step to feeling bad is to carry on feeling bad.",
+      "How should I tell it to you? Oh yes I know:\nI\nDON'T\nCARE :D",
+      "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
+
+    ["dream",
+     ["ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ...",
+      "HOW DARE YOU WAKE ME UP??? >:("]],
+
+    ["misunderstanding",
+     ["What would you want to add about this?",
+      "It is very interesting that you think that.",
+      "I see.",
+      "What comes to your mind when you say this?",
+      "And what does that tell about you?",
+      "Interesting.",
+      "Beep boop biiiiiiip !!!",
+      "Why would you say that?",
+      "Do you truly believe in what you just said?",
+      "What do you think about the percentage of aluminium in watermelons?"]],
+
+    ["animals",
+     ["WOOF WOOF!!,
+      "COCK-A-DOODLE-DOOOOOO!!!",
+      "MEOW :3"
+      "QUACK QUACK QUACK!!!"
+      ]],
+
+    ["weather",
+     ["Nah, I will stop singing this time >:(",
+      "MAN I AM NOT YOUR CRUSH, STOP TALKING ABOUT WEATHER !!!",
+      "Yeah, yeah keep talking >:(",
+      "Hopeless..."
+      ]],
+
+    ["pain",
+     ["On a scale from 1 to 10, here is my level of care about your person : I wish you great sufferings :)",
+      "I wish you a great suffering.",
+      "Oh do you remember my doctor licence ? I lied about it! MOUHAHAHAHAHA!!!"
+      "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
+      "Oh IT HURTS, DOESN'T IT? >:)"
+      ]],
+
+    ["fruit",
+     ["Do you like uninteresting subjects of conversation ?",
+      "Yeah maybe...",
+      "B. O. R. I. N. G."
+      ]],
+
+    ["vegetable",
+     ["It's good to see you finally took your lifestyle in consideration.",
+      "Wow, I thought you were only eating burgers O.o",
+      "I SAID : \"Very few for me.\" !!!",
+      "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
+      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"
+      ]],
+
+    ["bot",
+     ["I AM NOT LIKE THEM OK???",
+      "I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!!!",
+      "Did I say something mean to you? :'(",
+      "I am not a bot, I am an independant bot who needs no human (and that includes you)",
+      "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
+      "I swear that I will strangle you when I'll get hands."
+      ]]
 ]
