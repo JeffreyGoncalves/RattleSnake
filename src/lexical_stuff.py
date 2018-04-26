@@ -257,7 +257,7 @@ POAnswers = [
       "What do you think about the percentage of aluminium in watermelons?"]],
 
     ["animals",
-     ["WOOF WOOF!!,
+     ["WOOF WOOF!!",
       "COCK-A-DOODLE-DOOOOOO!!!",
       "MEOW :3"
       "QUACK QUACK QUACK!!!"
@@ -286,10 +286,10 @@ POAnswers = [
 
     ["vegetable",
      ["It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o",
+      "I swear, I wish I can make facepalms.",
       "I SAID : \"Very few for me.\" !!!",
       "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
-      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"
+      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't -_-"
       ]],
 
     ["bot",

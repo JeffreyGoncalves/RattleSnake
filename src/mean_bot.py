@@ -295,7 +295,6 @@ def calculate_mood_update(subject, action_type, mood_score):
 		if(action_type == "question" and subject == "misunderstanding"):
 		# DO NOT ASK QUESTIONS I CAN'T ANSWER
 		mood_score += 5
-
 	return mood_score
 
 def define_behaviour(subject, action, action_type):
