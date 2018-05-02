@@ -43,8 +43,8 @@ subjects = [
      "pineapple","tangerines","banana","dates","avocado","honeydew"]],
 
     ["vegetable",["beets","peppers","radishes","radicchio","onions","potatoe","rhubarb",
-     "tomatoe","carrot","pumpkin","rutabagas","mushrooms","artichokes","broccoli","celery",
-     "endive","lettuce","peas","watercress"]],
+     "tomatoe","carrot", "carrots","pumpkin","rutabagas","mushrooms","artichokes","broccoli","celery",
+     "endive","lettuce","peas","watercress", "vegetable", "vegetables"]],
     
     ["bot",["bot","bots","robot","robots","computer","computers","machine","machines"]]
 
@@ -57,8 +57,7 @@ basicAnswers = [
       "It's important to be able to rely on your family!",
       "Do you feel close to your family?",
       "Would you like to have children?",
-      "Do you often see your family?",
-      "Your mother would be proud of you!"]],
+      "Do you often see your family?"]],
 
     ["depression",
      ["Do you feel depressed right now?",
@@ -130,11 +129,12 @@ basicAnswers = [
       "Did I say something mean to you? :'(",
       "I am not a bot, I am an independant bot who needs no human (and that includes you)",
       "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
-      "I swear that I will strangle you when I'll get hands."
+      "I swear that I will strangle you when I'll get hands.",
+      "Rule n°1 : do not talk about bots. As far as you know, I am human!"
      ]]
 ]
 
-angryAnswers = [
+POAnswers = [
 
     ["family",
      ["OK.",
@@ -173,7 +173,7 @@ angryAnswers = [
       "What do you think about the percentage of aluminium in watermelons?"]],
 
     ["animals",
-     ["You know, I really don't care about animals."
+     ["You know, I really don't care about animals.",
       "Animals are only made for being our slaves and food, especially your dog :)",
       "Man, PLEASE, talk about something interesting."
       "I don't care about your pet!!!",
@@ -222,10 +222,10 @@ angryAnswers = [
       ]]
 ]
 
-POAnswers = [
+AngryAnswers = [
 
   ["family",
-     ["MAN I DON'T GIVE A F*CK ABOUT YOUR FAMILY!!!",
+     ["I ACTUALLY DON'T GIVE A F*CK ABOUT YOUR FAMILY!!!",
       "Man, please, please, PLEASE!!!"
       "You are (again) as interesting as a grain of sand in a desert.",
       "I HOPE YOUR GRANDFATHER DIEEEEED, OK?",

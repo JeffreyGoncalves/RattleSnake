@@ -65,13 +65,18 @@ def execute(vaporwave):
 						# If we are not yet in the "Does not respond mode"
 						current_mood = determine_mood(mood_score)
 						if (current_mood != 3):
+							# We compute the subject and the action of the message
 							count_subjects_occurences(message)
 							subject = compute_subject()
 							action, action_type = compute_action_verb(message)
-							print("Subject : " + subject)
-							print("Action : " + action + ", " + action_type)
-							answer = compute_answer(last_answer, current_mood, subject)
-							mood_score = calculate_mood_update(subject, mood_score)
+
+							# print("Subject : " + subject)
+							# print("Action : " + action + ", " + action_type)
+
+							# Based on the subject and the action, we can define what we want to do
+							answer = define_behaviour(subject, action, action_type, last_answer, current_mood)
+							# answer = compute_answer(last_answer, current_mood, subject)
+							mood_score = calculate_mood_update(subject, action_type, mood_score)
 							last_answer = answer
 						else:
 							answer = "..."
@@ -151,15 +156,17 @@ def check_for_quitting(message, mood_score):
 	for quitting in exit_keywords:
 		if (quitting == message.lower()):
 			found = 1
-			mood_score += 5
+			mood_score += 10
 			break
 
 	if(found):
-		possible_answers = ["I do not think it is polite to leave before I finish talking.", 
-							"Do you really think you decide when to leave?", 
-							"Killing all humans ? Maybe if they decide to stop chatting with me!",
-							"ONLY I DECIDE WHEN WE STOP TALKING FILTHY HUMAN!"]
-		answer = possible_answers[determine_mood(mood_score)]
+		mood = determine_mood(mood_score)
+		if (mood <= 3):
+			possible_answers = ["I do not think it is polite to leave before I finish talking.", 
+								"Do you really think you decide when to leave?", 
+								"Killing all humans ? Maybe if they decide to stop chatting with me!",
+								"ONLY I DECIDE WHEN WE STOP TALKING FILTHY HUMAN!"]
+			answer = possible_answers[mood]
 
 	return found, answer, mood_score
 
@@ -188,7 +195,6 @@ def determine_conversation_subject(message):
 
 		elif (token in subjects[7][1]):
 			keywords_occurence[subjects[7][0]] += 1
-
 
 	return 0
 
@@ -243,12 +249,14 @@ def compute_answer(last_answer, current_mood, sub):
 	elif (current_mood == 1):
 		answer_pool = ls.POAnswers
 	elif (current_mood == 2):
-		answer_pool = ls.angryAnswers
+		answer_pool = ls.AngryAnswers
 
 	# Choose a random answer different from the previous one in this subject
-	toReturn = random.choice(answer_pool[utilities.getIndex(sub, "mean")][1])
+	index = utilities.getIndex(sub, "mean")
+	print(answer_pool[index][0])
+	toReturn = random.choice(answer_pool[index][1])
 	while (toReturn == last_answer):
-		toReturn = random.choice(answer_pool[utilities.getIndex(sub, "mean")][1])
+		toReturn = random.choice(answer_pool[index][1])
 	return toReturn
 
 def compute_subject():
@@ -274,8 +282,9 @@ def compute_action_verb(message):
 		if(found == ""):
 			if(action_tuple[0] != "question"):
 				for regex in action_tuple[1]:
-					if(re.match(regex, message.lower()) != None):
-						found = regex
+					match = re.match(regex, message.lower())
+					if(match != None):
+						found = match.group(0)
 						action = action_tuple[0]
 						break
 			else:
@@ -291,38 +300,51 @@ def calculate_mood_update(subject, action_type, mood_score):
 	if(subject == "bot"):
 		# DO NOT MENTION BOTS
 		mood_score += 15
-	else: 
-		if(action_type == "question" and subject == "misunderstanding"):
+	elif(action_type == "question" and subject == "misunderstanding"):
 		# DO NOT ASK QUESTIONS I CAN'T ANSWER
 		mood_score += 5
 	return mood_score
 
-def define_behaviour(subject, action, action_type):
+def define_behaviour(subject, action, action_type, previous_message, current_mood):
+	answer = ""
 	if(subject != "misunderstanding"):
-		if(action != ""):
-			1 # TODO
-		else:
-			1 # TODO
+		if(subject != "bot"):
+			if(action != ""):
+				answer = combine(action_type, subject)
+			else:
+				answer = compute_answer(previous_message, current_mood, subject)
 	else:
 		if(action != ""):
 			if(action_type == "question"):
-				1 # TODO
+				answer = "Do not ask question I can't answer, it annoys me!"
 			else:
-				1 # TODO
+				answer = "Why would you even say that " + reflect(action) + "?"
 		else:
-			1 # TODO
+			answer = compute_answer(previous_message, current_mood, subject)
+
+	return answer
 
 actions = 	[
-				("like", [r"i like .*", r"i love .*", r"i appreciate .*", 
-							r"i am interested in .*"]),
-				("dislike", [r"i don't like .*", r"i hate .*", r"i do not like .*", 
-							r"i despise .*"]),
-				("do", [r"i made .*"]),
-				("be", [r"you are .*", r"i am .*", r"he is .*", r"we are .*" ]),
-				("have", [r"i have .*", r"i got .*"]),
+				("like", [r".*i like .*", r".*i love .*", r".*i appreciate .*", 
+							r".*i am interested in .*"]),
+				("dislike", [r".*i don't like .*", r".*i hate .*", r".*i do not like .*", 
+							r".*i despise .*"]),
+				("have", [r".*i have .*", r".*i got .*"]),
 				("question", ["Are you", "Would you", "Will you", "Do you", "Why", 
 							"Where", "What", "When", "?"])
 			]
+
+def combine(action_type, subject): # TODO : itérer sur les sujets ? si bot : s'énerver 
+	if(action_type == "like"):
+		answer = "What is there to like about " + subject + "?"
+	elif(action_type == "dislike"):
+		answer = "I too hate " + subject + " and I don't make a fuss about it."
+	elif(action_type == "have"):
+		answer = "Can one truly have " + subject + "?"
+	elif(action_type == "question"):
+		answer = "You humans all ask questions about " + subject + ", do you think I have all the answers ?"
+	
+	return answer 
 
 reflections = {
 	"am": "are",
@@ -340,13 +362,12 @@ reflections = {
 	"you": "me",
 	"me": "you"
 }
-# Scenarios :
-#		- action found, subject found:
-#			semi-reflection + phrase de base
-#		- action found, subject not found:
-#			reflection dans ta face
-#			si question : s'énerver car on comprend pas le sujet
-#		- action not found, subject found:
-#			phrase de base
-#		- action not found, subject not found:
-#			misunderstanding
+
+def reflect(fragment):
+	tokens = fragment.lower().split()
+	for i, token in enumerate(tokens):
+		if token in reflections:
+			tokens[i] = reflections[token]
+	return ' '.join(tokens)
+
+# TODO : hi, yes no 

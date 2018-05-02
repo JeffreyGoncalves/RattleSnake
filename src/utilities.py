@@ -76,17 +76,19 @@ def transform_to_vaporwave(message):
 
 def getIndex(sub, psyOrMean):
 # Gets the index of the subject given as parameter
-    default = 5
-    if(psyOrMean == "psychiatrist"):
-    	subjects = ["family", "depression", "like", "dislike", "dream", "misunderstanding", 
-    				"animals"]
-    elif(psyOrMean == "mean"):
-    	subjects = ["family", "depression", "animals", "dream",  "misunderstanding", 
-    	  			"weather", "pain", "fruit", "vegetable", "bot"]
-    i = 0
-    for subject in subjects:
-        if(subject == sub):
-            return i
-        i += 1
+	default = 5
+	if(psyOrMean == "psychiatrist"):
+		subjects = ["family", "depression", "like", "dislike", "dream", "misunderstanding", 
+					"animals"]
+	elif(psyOrMean == "mean"):
+		subjects = ["family", "depression", "animals", "dream", "misunderstanding", 
+		  			"weather", "pain", "fruit", "vegetable", "bot"]
+	i = 0
+	for subject in subjects:
+		# print("//"+subject+" >> "+sub)
+		if(subject == sub):
+			# print("EQUALS")
+			return i
+		i += 1
 
-    return default  # should never happen
+	return default  # should never happen
