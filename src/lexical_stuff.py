@@ -29,18 +29,18 @@ subjects = [
                     "hamster", "pig", "horse", "pony", "monkey", "cow", "duck", "deer",
                     "rabbit", "lion"]],
     
-    ["dream",["dream", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy",
-                  "oniric", "lucid", "woke"]],
+    ["dreams",["dream", "dreaming", "night", "sleeping", "bed", "nightmare", "fantasy",
+                  "oniric", "lucid", "woke", "dreams"]],
 
     ["weather",["sun","sunny","rain","rainy","cloud","cloudy","rainbow","hot","cold","air","atmosphere",
                 "raining","climate","cyclone","meteo"]],
     
     ["pain",["ache","headache","stomachache","agony","fever","ill","illness","injury","wound","wounds","wounded","suffer","suffering","sufferings","pain","pains"]],
 
-    ["fruit",["apple","orange","cherries","grapes","grapefruit","pears","pomegranates",
-     "raspberries","strawberries","watermelon","apricots","gooseberries","cantaloupe",
-     "figs","kiwifruit","lemon","mangoes","nectarines","papayas","peaches","persimmons",
-     "pineapple","tangerines","banana","dates","avocado","honeydew"]],
+    ["fruits",["apple","orange","cherries","grapes","grapefruit","pears","pomegranates", "strawberry",
+     "raspberries","strawberries","watermelon","apricots","gooseberries","cantaloupe", "pineapples",
+     "figs","kiwifruit","lemon","mangoes","nectarines","papayas","peaches","persimmons", "lemons", 
+     "pineapple","tangerines","banana","dates","avocado","honeydew", "apples", "oranges", "bananas"]],
 
     ["vegetable",["beets","peppers","radishes","radicchio","onions","potatoe","rhubarb",
      "tomatoe","carrot", "carrots","pumpkin","rutabagas","mushrooms","artichokes","broccoli","celery",
@@ -74,7 +74,7 @@ basicAnswers = [
       "\"Woof woof\", the dog said, while his master was opening the door.",
       "A cat picture a day keeps the doctor away."]],
     
-    ["dream",
+    ["dreams",
      ["Do you dream often?",
       "What was your last dream about?",
       "In my last dream, I was a polar bear, what about you?",
@@ -109,7 +109,7 @@ basicAnswers = [
       "\"Pain is temporary. It may last a minute, or an hour, or a day, or a year, but eventually it will subside and something else will take its place. If I quit, however, it lasts forever.\" -- Lance Amstrong",
       "You should check your lifestyle."]],
 
-    ["fruit",
+    ["fruits",
      ["Do you like apples?",
       "I know a guy who like it too! I should introduce him to you.",
       "Fruits are like sweets but healthy.",
@@ -153,7 +153,7 @@ POAnswers = [
       "I would punch you to clear you head but my creator didn't give me arms. Sorry :]",
       "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
 
-    ["dream",
+    ["dreams",
      ["ZZZZZZZZ...",
       "Hey! Hey! Do you want my dream story ? To kick you out of this conversation :D",
       "Actually, your dream is really terrible :/",
@@ -196,7 +196,7 @@ POAnswers = [
       "You should check your lifestyle."
       ]],
 
-    ["fruit",
+    ["fruits",
      ["Do you like uninteresting subjects of conversation ?",
       "Yeah maybe...",
       "B. O. R. I. N. G.",
@@ -240,7 +240,7 @@ AngryAnswers = [
       "How should I tell it to you? Oh yes I know:\nI\nDON'T\nCARE :D",
       "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
 
-    ["dream",
+    ["dreams",
      ["ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ...",
       "HOW DARE YOU WAKE ME UP??? >:("]],
 
@@ -278,7 +278,7 @@ AngryAnswers = [
       "Oh IT HURTS, DOESN'T IT? >:)"
       ]],
 
-    ["fruit",
+    ["fruits",
      ["Do you like uninteresting subjects of conversation ?",
       "Yeah maybe...",
       "B. O. R. I. N. G."
