@@ -21,7 +21,7 @@ def execute(vaporwave):
 
 
 def compute_answer(last_backchannel):
-	backchannels = ["Hmm?", "I agree", "Oh...", "Interestin1234567890g!", "Tell me more about it"]
+	backchannels = ["Hmm?", "I agree", "Oh...", "Interesting!", "Tell me more about it"]
 
 	# Removing previously used backchannel from the list of possible answers
 	if(last_backchannel != ""):

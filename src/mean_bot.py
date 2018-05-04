@@ -24,7 +24,6 @@ noresponse_ceiling = 50
 keywords_occurence = dict()
 
 def execute(vaporwave):
-	last_answer = ""
 	mood_score = 0;
 	
 	# This is to avoid the first message being detected as identical to this 
@@ -53,7 +52,7 @@ def execute(vaporwave):
 				mood_score += 15
 			else:
 				# Checking for introduction sentences or yes/no answers
-				found, intro_answer = check_for_intro_words(message)
+				found, intro_answer = check_for_intro_words(message, previous_answer)
 				if (found):
 					answer = intro_answer
 				else :
@@ -79,10 +78,10 @@ def execute(vaporwave):
 								# print("Action : " + action + ", " + action_type)
 
 								# Based on the subject and the action, we can define what we want to do
-								answer = define_behaviour(subject, action, action_type, last_answer, current_mood)
+								answer = define_behaviour(subject, action, action_type, previous_answer, current_mood)
 								# answer = compute_answer(last_answer, current_mood, subject)
 								mood_score = calculate_mood_update(subject, action_type, mood_score)
-								last_answer = answer
+								# previous_answer = answer
 							else:
 								answer = "..."
 
@@ -131,26 +130,30 @@ def identic_message(previous_message):
 
 	return random.choice(possible_answers)
 
-def check_for_intro_words(message):
+def check_for_intro_words(message, previous_message):
 	intro_keywords = ["hi", "hello", "how are you?", "nice to meet you", "greetings", "yes", "no"]
 
 	found = 0
 	answer = ""
 	for hello in intro_keywords:
-		if (hello in message.lower()):
+		if (hello == message.lower()):
 			found = 1
 			break
 
 	if (found):
-		if("yes" in message.lower()):
+		if("yes" == message.lower()):
 			answer = "No."
-		elif("no" in message.lower()):
+		elif("no" == message.lower()):
 			answer ="Yes."
 		else:
 			possible_answers = ["01101000 01100101 01101100 01101100 01101111.", 
 								"Greetings human.", 
 								"Is that string of text supposed to mean that you salute me?",
 								"I'm working hard on processing natural language here, please get to the point."]
+			
+			if(previous_message in possible_answers):
+				possible_answers.remove(previous_message)
+
 			answer = random.choice(possible_answers)
 
 	return found, answer
@@ -171,7 +174,7 @@ def check_for_nice_words(message, mood_score):
 	if (found):
 		possible_answers = ["That can be nice to hear.", 
 							"Someone asked you to say that?", 
-							"Redemption for yourself will take more effort than that.",
+							"Redemption will take more effort than that.",
 							"Pfff already knew that."]
 		answer = possible_answers[determine_mood(mood_score)]
 
@@ -239,7 +242,7 @@ def count_subjects_occurences(input):
 	keywords_occurence["weather"] = 0
 	keywords_occurence["pain"] = 0
 	keywords_occurence["fruits"] = 0
-	keywords_occurence["vegetable"] = 0
+	keywords_occurence["vegetables"] = 0
 	keywords_occurence["bot"] = 0
 
 	for index, tkn in enumerate(tokens):
@@ -258,14 +261,14 @@ def count_subjects_occurences(input):
 		elif(tkn in ls.subjects[6][1]):
 			keywords_occurence["fruits"] += 1
 		elif(tkn in ls.subjects[7][1]):
-			keywords_occurence["vegetable"] += 1
+			keywords_occurence["vegetables"] += 1
 		elif(tkn in ls.subjects[8][1]):
 			keywords_occurence["bot"] += 1
 
 	# If no keywords are found, we select "misunderstanding" as subject			 
 	if(keywords_occurence["family"] == 0 and keywords_occurence["depression"] == 0 and keywords_occurence["animals"] == 0
 		and keywords_occurence["dreams"] == 0 and keywords_occurence["weather"] == 0 and keywords_occurence["pain"] == 0
-		and keywords_occurence["fruits"] == 0 and keywords_occurence["vegetable"] == 0 and keywords_occurence["bot"] == 0 ):
+		and keywords_occurence["fruits"] == 0 and keywords_occurence["vegetables"] == 0 and keywords_occurence["bot"] == 0 ):
 		keywords_occurence["misunderstanding"] = 1
 
 def compute_answer(last_answer, current_mood, sub):
@@ -282,7 +285,6 @@ def compute_answer(last_answer, current_mood, sub):
 
 	# Choose a random answer different from the previous one in this subject
 	index = utilities.getIndex(sub, "mean")
-	print(answer_pool[index][0])
 	toReturn = random.choice(answer_pool[index][1])
 	while (toReturn == last_answer):
 		toReturn = random.choice(answer_pool[index][1])
@@ -290,7 +292,7 @@ def compute_answer(last_answer, current_mood, sub):
 
 def compute_subject():
 	subjects = ["family", "depression", "animals", "dreams",  "misunderstanding", "weather", "pain", 
-				"fruits", "vegetable", "bot"]
+				"fruits", "vegetables", "bot"]
 	max = 0
 	sub = ""
 
@@ -299,8 +301,6 @@ def compute_subject():
 		if(max < keywords_occurence[subjects[i]]):
 			max = keywords_occurence[subjects[i]]
 			sub = subjects[i]
-
-	print(keywords_occurence) #TODO : remove
 
 	return sub
 
@@ -335,13 +335,12 @@ def calculate_mood_update(subject, action_type, mood_score):
 	return mood_score
 
 def define_behaviour(subject, action, action_type, previous_message, current_mood):
-	answer = ""
+	answer = "ERROR : NO ANSWER"
 	if(subject != "misunderstanding"):
-		if(subject != "bot"):
-			if(action != ""):
-				answer = combine(action_type, subject, previous_message)
-			else:
-				answer = compute_answer(previous_message, current_mood, subject)
+		if(action != ""):
+			answer = combine(action_type, subject, previous_message)
+		else:
+			answer = compute_answer(previous_message, current_mood, subject)
 	else:
 		if(action != ""):
 			if(action_type == "question"):
@@ -355,7 +354,7 @@ def define_behaviour(subject, action, action_type, previous_message, current_moo
 				answer = random.choice(choices)
 			else:
 				choices = ["Why would you even say that " + reflect(action) + "?", 
-						"\"" + reflect(action) + "\" -Some human",
+						"\"" + action + "\" -Some human",
 						"I'd like to take a moment to think about why you'd say something like this."]
 				if(previous_message in choices):
 					choices.remove(previous_message)
@@ -367,18 +366,18 @@ def define_behaviour(subject, action, action_type, previous_message, current_moo
 	return answer
 
 actions = 	[
-				("like", [r".*i like .*", r".*i love .*", r".*i appreciate .*", 
-							r".*i am interested in .*", r".*i care about .*"]),
-				("dislike", [r".*i don't like .*", r".*i hate .*", r".*i do not like .*", 
-							r".*i despise .*"]),
-				("have", [r".*i have .*", r".*i got .*"]),
+				("like", [r".*[iI] like .*", r".*[iI] love .*", r".*[iI] appreciate .*", 
+							r".*[iI] am interested in .*", r".*[iI] care about .*"]),
+				("dislike", [r".*[iI] don't like .*", r".*[iI] hate .*", r".*[iI] do not like .*", 
+							r".*[iI] despise .*"]),
+				("have", [r".*[iI] have .*", r".*[iI] got .*"]),
 				("question", ["Are you", "Would you", "Will you", "Do you", "Why", 
 							"Where", "What", "When", "?"])
 			]
 
-def combine(action_type, subject, previous_message): # TODO : itérer sur les sujets ? si bot : s'énerver 
+def combine(action_type, subject, previous_message):
 	if(action_type == "like"):
-		if(subject in ["family", "animals", "fruits", "vegetable", "weather"]):
+		if(subject in ["family", "animals", "fruits", "vegetables", "weather"]):
 			choices = ["You care about " + subject + "? How original!", 
 						"What is there to like about " + subject + "?",
 						"Wow, you too like interesting subjects, " + subject + ", fascinating!"]
@@ -412,7 +411,7 @@ def combine(action_type, subject, previous_message): # TODO : itérer sur les su
 			answer = random.choice(choices)
 
 	elif(action_type == "dislike"):
-		if(subject in ["family", "animals", "fruits", "vegetable", "weather", "dreams"]):
+		if(subject in ["family", "animals", "fruits", "vegetables", "weather", "dreams"]):
 			choices = ["I too hate " + subject + " and I don't make a fuss about it.", 
 						"Your dislike for " + subject + " bores me to death",
 						"What made you think you could tell me about your hate for " + subject + "?"]
@@ -473,5 +472,3 @@ def reflect(fragment):
 		if token in reflections:
 			tokens[i] = reflections[token]
 	return ' '.join(tokens)
-
-# TODO : hi, yes no 
