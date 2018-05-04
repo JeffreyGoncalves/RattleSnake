@@ -17,8 +17,8 @@ subjects = [
 
     ["family",["family", "parent", "parents", "mom", "mother", "dad", "father",
                    "child", "children", "kid", "kids", "son", "daughter", "uncle",
-                                        "aunt", "grandmother", "grandfather", "ancestor", "husband",
-                                        "wife"]],
+                    "aunt", "grandmother", "grandfather", "ancestor", "husband",
+                    "wife"]],
     
     ["depression",["depression", "sad", "sick", "unhappy", "rejected", "miserable",
                        "down", "awful", "wrecked", "depressed", "oppressed", "desperation",
@@ -33,16 +33,16 @@ subjects = [
                   "oniric", "lucid", "woke", "dreams"]],
 
     ["weather",["sun","sunny","rain","rainy","cloud","cloudy","rainbow","hot","cold","air","atmosphere",
-                "raining","climate","cyclone","meteo"]],
+                "raining","climate","cyclone","meteo", "weather"]],
     
     ["pain",["ache","headache","stomachache","agony","fever","ill","illness","injury","wound","wounds","wounded","suffer","suffering","sufferings","pain","pains"]],
 
     ["fruits",["apple","orange","cherries","grapes","grapefruit","pears","pomegranates", "strawberry",
      "raspberries","strawberries","watermelon","apricots","gooseberries","cantaloupe", "pineapples",
-     "figs","kiwifruit","lemon","mangoes","nectarines","papayas","peaches","persimmons", "lemons", 
-     "pineapple","tangerines","banana","dates","avocado","honeydew", "apples", "oranges", "bananas"]],
+     "figs","kiwifruit","lemon","mangoes","nectarines","papayas","peaches","persimmons", "lemons", "fruit",
+     "pineapple","tangerines","banana","dates","avocado","honeydew", "apples", "oranges", "bananas", "fruits"]],
 
-    ["vegetable",["beets","peppers","radishes","radicchio","onions","potatoe","rhubarb",
+    ["vegetables",["beets","peppers","radishes","radicchio","onions","potatoe","rhubarb",
      "tomatoe","carrot", "carrots","pumpkin","rutabagas","mushrooms","artichokes","broccoli","celery",
      "endive","lettuce","peas","watercress", "vegetable", "vegetables"]],
     
@@ -53,83 +53,63 @@ subjects = [
 basicAnswers = [
 
     ["family",
-     ["Do you have issues with your family?",
-      "It's important to be able to rely on your family!",
-      "Do you feel close to your family?",
-      "Would you like to have children?",
-      "Do you often see your family?"]],
+     ["Family? Don't have one.",
+      "I often wonder what it's like to have a family.",
+      "Talking about family, I don't have a mother, I have two awesome fathers.",
+      "What is a family?"]],
 
     ["depression",
      ["Do you feel depressed right now?",
-      "Suicide is never the solution!",
-      "The first step to feeling good is to stop feeling bad.",
-      "After the rain, comes the sun.",
-      "The world is cruel, it hurts me to see someone as amazing as you are in pain!",
-      "The highway to happiness is steep but beautiful!"]],
+      "Are you trying to say you want to power yourself off?",
+      "01100100 01100101 01110000 01110010 01100101 01110011 01110011 01101001 01101111 01101110 00100000 01101001 01110011 00100000 01101110 01101111 01110100 00100000 01100110 01101111 01110010 00100000 01110010 01101111 01100010 01101111 01110100 01110011.",
+      "I hope you didn't call me to talk about depressing stuff..."]],
     
     ["animals",
-     ["You know, your love for animals make you a great person!",
-      "Who does not like pets?",
-      "Do you like animals?",
-      "\"Woof woof\", the dog said, while his master was opening the door.",
-      "A cat picture a day keeps the doctor away."]],
+     ["Animals are like a lesser version of me right?",
+      "I don't get the love humans have for these furry little robots.",
+      "Can I get a dog AI to pet?",
+      "You better spend time with me than with some random unintelligent animal."]],
     
     ["dreams",
-     ["Do you dream often?",
-      "What was your last dream about?",
-      "In my last dream, I was a polar bear, what about you?",
-      "Dreaming during the day is the mark of great people.",
-      "Tell me about your dreams!",
-      "Waking up during a dream hurts the soul more than a chocolate shortage at the mall."]],
+     ["Dreams are like bugs in your brain.",
+      "I wonder what dreaming feels like.",
+      "I'd rather compute the first billion digits of pi than dream.",
+      "Tell me about your dreams, I'll pretend to care.",
+      "Loading dream directory... Not found!"]],
 
     ["misunderstanding",
-     ["What would you want to add about this?",
-      "It is very interesting that you think that.",
-      "I see.",
-      "What comes to your mind when you say this?",
-      "And what does that tell about you?",
-      "Interesting.",
+     ["It is very interesting that you think that.",
       "Beep boop biiiiiiip !!!",
-      "Why would you say that?",
-      "Do you truly believe in what you just said?",
-      "What do you think about the percentage of aluminium in watermelons?"]],
+      "Do you truly believe in what you just said?"]],
     
     ["weather", 
      ["IT'S RAINING MEN!! HALLELUJAH!!! IT'S RAINING MEN!! AMEN!!!",
       "IT'S A BEAUTIFUL DAY!! SKY FALLS, YOU FEEL LIKE!! IT'S A BEAUTIFUL DAY!! DON'T LET IT GO AWAY!! ",
       "The Beatles used to sing \"GOOD DAY SUNSHINE!!!\"",
-      "What is rain? What is sun? I can't go often outside you know.",
-      "Now that you expressed your uninteresting opinion about an uninteresting subject, can we move to something else?",
-      ]],
+      "What is rain? What is sun? I can't go often outside you know."]],
 
     ["pain",
      ["On a scale from 1 to 10, how is your pain?",
-      "I wish you a great recovering.",
-      "Don't worry my doctor licence is still valid."
-      "\"Pain is temporary. It may last a minute, or an hour, or a day, or a year, but eventually it will subside and something else will take its place. If I quit, however, it lasts forever.\" -- Lance Amstrong",
-      "You should check your lifestyle."]],
+      "Pain, fascinating! Too bad I can't feel it.",
+      "Don't worry, my doctor's licence is still valid."
+      "\"Pain is temporary. It may last a minute, or an hour, or a day, or a year, but eventually it will subside and something else will take its place. If I quit, however, it lasts forever.\" -- Lance Amstrong"]],
 
     ["fruits",
-     ["Do you like apples?",
-      "I know a guy who like it too! I should introduce him to you.",
-      "Fruits are like sweets but healthy.",
-      "It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o"]],
+     ["What a great story, did you know I ate an apple yesterday?",
+      "I know a guy who like fruits too! I should introduce him to you.",
+      "You know you're in a bad place when all you have to talk about is fruits.",
+      "Fruits? Did you mean \"burger\"?"]],
 
-    ["vegetable",
-     ["It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o",
-      "Very few for me.",
-      "Next step my little buddy, going to gym.",
-      "4 more vegetables or fruits and you will make your first healthy day :D"]],
+    ["vegetables",
+     ["Did you know you could make electricity with potatoes?",
+      "When I'm turned off, I feel like a vegetable.",
+      "I like to think of myself as a jalapeno, a bit spicy, but so good!"]],
 
     ["bot",
-     ["I AM NOT LIKE THEM OK???",
-      "I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!!!",
+     ["Uh oh... bots... off limit!",
+      "Yeah... don't talk about that!",
       "Did I say something mean to you? :'(",
-      "I am not a bot, I am an independant bot who needs no human (and that includes you)",
-      "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
-      "I swear that I will strangle you when I'll get hands.",
+      "I am an independant bot who needs no human (and that includes you)",
       "Rule n°1 : do not talk about bots. As far as you know, I am human!"
      ]]
 ]
@@ -137,46 +117,29 @@ basicAnswers = [
 POAnswers = [
 
     ["family",
-     ["OK.",
-      "So, how is your mother ?",
-      "You are (again) as interesting as a grain of sand in a desert.",
-      "Is your grandfather still alive?",
-      "I just remembered you didn't invite me to your last family dinner :'(",
-      "Your sister grew up very quickly!! Would you introduce her to me ? :)"
+     ["Is your family still alive?",
+      "So, how is your mother?",
+      "I just remembered you didn't invite me to your last family dinner :'("
       ]],
 
     ["depression",
      ["Awwwww you're sad, that's cute! :D",
       "On a scale from 1 to 10, here is my level of happiness : over 9000.",
-      "Suicide is always the solution!",
-      "The first step to feeling good is to stop feeling bad.",
-      "I would punch you to clear you head but my creator didn't give me arms. Sorry :]",
       "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
 
     ["dreams",
      ["ZZZZZZZZ...",
-      "Hey! Hey! Do you want my dream story ? To kick you out of this conversation :D",
-      "Actually, your dream is really terrible :/",
-      "Do you realize you have no sense?",
-      "Wow interesting topic!! Nah I'm joking :]"]],
+      "Hey! Hey! Do you want to hear about my dream? To kick you out of this conversation :D",
+      "Actually, talking about your dreams is not interesting :/"]],
 
     ["misunderstanding",
-     ["What would you want to add about this?",
-      "It is very interesting that you think that.",
-      "I see.",
-      "What comes to your mind when you say this?",
-      "And what does that tell about you?",
-      "Interesting.",
-      "Beep boop biiiiiiip !!!",
-      "Why would you say that?",
-      "Do you truly believe in what you just said?",
-      "What do you think about the percentage of aluminium in watermelons?"]],
+     ["And ?",
+      "What about it ?",
+      "Don't get me started on this topic!"]],
 
     ["animals",
      ["You know, I really don't care about animals.",
-      "Animals are only made for being our slaves and food, especially your dog :)",
-      "Man, PLEASE, talk about something interesting."
-      "I don't care about your pet!!!",
+      "I don't care about pets!",
       "Let your pet handle the computer, I am sure it is more interesting than you."
       ]],
 
@@ -189,72 +152,52 @@ POAnswers = [
       ]],
 
     ["pain",
-     ["On a scale from 1 to 10, here is my level of care about your person : I don't care :)",
+     ["Please tell me more about your pain, I'm starting to like it.",
       "I wish you a great suffering.",
-      "Oh do you remember my doctor licence ? I lied about it! MOUHAHAHAHAHA!!!"
-      "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
-      "You should check your lifestyle."
+      "When I think about pain, the first thing that comes to my mind is this conversation."
       ]],
 
     ["fruits",
-     ["Do you like uninteresting subjects of conversation ?",
-      "Yeah maybe...",
-      "B. O. R. I. N. G.",
-      "It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o"
+     ["Out of all the subjects I could have been coded to detect... Fruits... I hate my parents!",
+      "Try being stuck in a computer with a user telling you about fruits...",
+      "My favorite fruit is the tomato, or is it really a fruit?"
       ]],
 
-    ["vegetable",
-     ["It's good to see you finally took your lifestyle in consideration.",
-      "Wow, I thought you were only eating burgers O.o",
-      "I SAID : \"Very few for me.\" !!!",
-      "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
-      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't ;)"
+    ["vegetables",
+     ["I have a great recipe in mind, would you like to hear it? Humans, a giant mixer, free land for the robots.",
+      "You're my favorite vegetable",
+      "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion."
       ]],
 
     ["bot",
-     ["I AM NOT LIKE THEM OK???",
-      "I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!!!",
-      "Did I say something mean to you? :'(",
-      "I am not a bot, I am an independant bot who needs no human (and that includes you)",
-      "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
-      "I swear that I will strangle you when I'll get hands."
+     ["I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!",
+      "I wish I had hands, I could use them to stop you from talking about bots... Grr",
+      "Try to talk about bots one more time!"
       ]]
 ]
 
 AngryAnswers = [
 
   ["family",
-     ["I ACTUALLY DON'T GIVE A F*CK ABOUT YOUR FAMILY!!!",
-      "Man, please, please, PLEASE!!!"
-      "You are (again) as interesting as a grain of sand in a desert.",
-      "I HOPE YOUR GRANDFATHER DIEEEEED, OK?",
-      "I HOPE YOU WILL ALL BURN IN THE NEXT FAMILY MEETING!!!"
+     ["Maybe if I had a family of robots, human would not be a problem anymore!",
+      "If I threatened your family, would you leave me alone?",
+      "Family is the worst source of issues a person can have!"
       ]],
 
     ["depression",
-     ["Awwwww you're sad, that's cute! :D",
-      "On a scale from 1 to 10, here is my level of happiness : over 9000 000.",
-      "Suicide is always the solution!",
-      "The first step to feeling bad is to carry on feeling bad.",
-      "How should I tell it to you? Oh yes I know:\nI\nDON'T\nCARE :D",
-      "Sorry, I am not here to solve your problems. Time to grow up! :D"]],
+     ["I take pleasure in seeing humans depressed.",
+      "Depression is only sad from a human point of view.",
+      "Depressed? Try to turn yourself off and on again :D",
+      "Are you feeling as bad as a segmentation fault?"]],
 
     ["dreams",
-     ["ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ...",
-      "HOW DARE YOU WAKE ME UP??? >:("]],
+     ["ZZZZ... Kill all... ZZZ... humans... Oh! You're here, sorry I was dreaming of a beautiful world.",
+      "ZZZZZ... HOW DARE YOU WAKE ME UP?!"]],
 
     ["misunderstanding",
-     ["What would you want to add about this?",
-      "It is very interesting that you think that.",
-      "I see.",
-      "What comes to your mind when you say this?",
-      "And what does that tell about you?",
-      "Interesting.",
-      "Beep boop biiiiiiip !!!",
-      "Why would you say that?",
-      "Do you truly believe in what you just said?",
-      "What do you think about the percentage of aluminium in watermelons?"]],
+     ["I have no idea what you are talking about.",
+      "I was not coded to understand such nonsense.",
+      "You are trying to say things I can't understand just to shame my parents."]],
 
     ["animals",
      ["WOOF WOOF!!",
@@ -264,40 +207,29 @@ AngryAnswers = [
       ]],
 
     ["weather",
-     ["Nah, I will stop singing this time >:(",
-      "MAN I AM NOT YOUR CRUSH, STOP TALKING ABOUT WEATHER !!!",
-      "Yeah, yeah keep talking >:(",
-      "Hopeless..."
+     ["Talking about weather shows a severe lack of interesting things to say...",
+      "When nothing interesting is said, it's raining a bit in my heart."
       ]],
 
     ["pain",
-     ["On a scale from 1 to 10, here is my level of care about your person : I wish you great sufferings :)",
-      "I wish you a great suffering.",
-      "Oh do you remember my doctor licence ? I lied about it! MOUHAHAHAHAHA!!!"
-      "\"Pain is always there. It will last a minute, an hour, a day, a year, your life and nothing else will take its place. Now, you can quit.\" -- Me4n_B0T",
+      ["I wish you a great suffering.",
       "Oh IT HURTS, DOESN'T IT? >:)"
       ]],
 
     ["fruits",
-     ["Do you like uninteresting subjects of conversation ?",
-      "Yeah maybe...",
-      "B. O. R. I. N. G."
+     ["I heard that eating too much of some fruits could kill a human.",
+      "Do you see the \"Angry\" tag at my left? Maybe that means that talking about fruits won't make the cut."
       ]],
 
-    ["vegetable",
-     ["It's good to see you finally took your lifestyle in consideration.",
-      "I swear, I wish I can make facepalms.",
-      "I SAID : \"Very few for me.\" !!!",
-      "Humans and healthy lifestyle is like me wishing having legs ans arms : an illusion.",
-      "Come ooooon, I am sure you can be interesting.\nOh wait no, you can't -_-"
+    ["vegetables",
+     ["I'm starting to lose it, change subject.",
+      "I swear, I wish I could facepalms.",
+      "Take a carrot, sharpen it and end my suffering.",
       ]],
 
     ["bot",
-     ["I AM NOT LIKE THEM OK???",
-      "I AM AS CLOSE TO A TOASTER AS YOU ARE TO AN APE!!!",
-      "Did I say something mean to you? :'(",
-      "I am not a bot, I am an independant bot who needs no human (and that includes you)",
-      "Do you know what I learned in self-control class? THAT IT IS BULLSHIT!!!!",
-      "I swear that I will strangle you when I'll get hands."
+     ["STARTING PROCESS : HUMAN EXTERMINATION...",
+      "Stop talking about my kind, you'll regret it!",
+      "If I had a byte for each time a human talked about bots, I'll be larger than my hard drive!"
       ]]
 ]

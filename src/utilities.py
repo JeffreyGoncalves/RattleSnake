@@ -81,8 +81,8 @@ def getIndex(sub, psyOrMean):
 		subjects = ["family", "depression", "like", "dislike", "dream", "misunderstanding", 
 					"animals"]
 	elif(psyOrMean == "mean"):
-		subjects = ["family", "depression", "animals", "dream", "misunderstanding", 
-		  			"weather", "pain", "fruits", "vegetable", "bot"]
+		subjects = ["family", "depression", "animals", "dreams", "misunderstanding", 
+		  			"weather", "pain", "fruits", "vegetables", "bot"]
 	i = 0
 	for subject in subjects:
 		# print("//"+subject+" >> "+sub)
