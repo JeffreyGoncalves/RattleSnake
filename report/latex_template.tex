@@ -56,10 +56,31 @@
 
 \begin{document}
 
-\title{Voici votre titre}
-\author{Les auteurs - c'est vous}
-\date{La date}
+\title{Traitement Automatisé du Langage}
+\author{Morgan FEURTE et Jeffrey GONCALVES}
+\date{05/05/2018}
 \maketitle
+
+\section{Objectif du projet :}
+Développer trois chatbots de niveau d'intelligence de plus en plus complexe.
+
+\section{Description des trois chatbots}
+\subsection{Mode 1 : Retour de backchannels}
+Ce mode, très simple, consiste à créer un chatbot ne possédant que quelques mots de vocabulaire censés relancer la conversation. Le bot doit choisir parmi sa liste de vocabulaire une phrase différente de la phrase précédente afin que l'utilisateur ne soupçonne pas la supercherie.
+
+Ce chatbot n'analyse pas le message de l'utilisateur, il se contente de le relancer encore et encore jusqu'à ce qu'il se lasse.
+
+Démonstration :
+\includegraphics[width=736pt]{MeanBot_mode1.png}
+
+\subsection{Mode 2 : Chatbot type Eliza}
+Ce mode est beaucoup plus complexe, le chatbot Eliza est basé sur la reconnaissance d'expression régulières. A chaque expression régulière est associée plusieurs réponses possibles. Le chatbot analyse le message entré par l'utilisateur et choisis au hasard une réponse possible parmi celles associés à l'expression régulière trouvée.
+
+Nous avons choisi de nous détourner un petit peu de ce système. Notre chatbot possède une liste de sujets qu'il sait reconnaitre ainsi qu'une liste de mots associés à chaque sujet. En prenant le message de l'utilisateur, il compte le nombre d'occurences des mots clés de chaque sujet pour déterminer quel est le sujet dominant de la phrase. Il a ensuite une liste de phrases pré-enregistrées pour chaque sujet parmi lesquelles il choisit au hasard afin de répondre à l'utilisateur. 
+
+\begin{center}
+\includegraphics[width=691pt]{MeanBot_mode2_keywords.png}
+\end{center}
 
 \section{Ceci est une section}
 Vous pouvez créer des sections, des sous-sections, des sous-sous-sections et des paragraphes. Après
@@ -159,4 +180,4 @@ Pour faire des équations alignées (p.~ex~ sur le signe égal):
 Quelques templates: \url{https://www.latextemplates.com} \\
 Documentation: \url{https://www.latex-project.org}
 
-\end{document}\grid
+\end{document}
