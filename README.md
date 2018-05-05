@@ -28,7 +28,7 @@ Pour exécuter notre programme, il suffit d'entre la ligne de commande suivante 
 
 ## Exemples d'exécutions
 
-Pour lancer le mode 1 en police vapowave, on entre la commande suivante :
+Pour lancer le mode 1 en police vaporwave, on entre la commande suivante :
 
 ```bash
 /opt/anaconda3/bin/python main.py 1 1
