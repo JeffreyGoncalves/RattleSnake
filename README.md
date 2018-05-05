@@ -44,6 +44,6 @@ Pour lancer le mode 2 en police basique, on entre la commande suivante :
 
 Les personnes ayant contribué à ce projet sont :
 
-* Morgan FEUTRE (aka Drakyll sur GitHub)
+* Morgan FREUTRE (aka Drakyll sur GitHub)
 
 * Jeffrey GONCALVES (aka JeffreyGoncalves sur GitHub)
