@@ -202,7 +202,7 @@ AngryAnswers = [
     ["animals",
      ["WOOF WOOF!!",
       "COCK-A-DOODLE-DOOOOOO!!!",
-      "MEOW :3"
+      "MEOW :3",
       "QUACK QUACK QUACK!!!"
       ]],
 

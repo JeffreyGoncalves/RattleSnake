@@ -285,6 +285,7 @@ def compute_answer(last_answer, current_mood, sub):
 
 	# Choose a random answer different from the previous one in this subject
 	index = utilities.getIndex(sub, "mean")
+	print(index)
 	toReturn = random.choice(answer_pool[index][1])
 	while (toReturn == last_answer):
 		toReturn = random.choice(answer_pool[index][1])
